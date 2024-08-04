@@ -2,32 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:root{
+    background:linear-gradient(45deg, #780206, #061161);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+  
+@layer components {
+    .input {
+      @apply bg-neutral-900 w-full h-9 max-w-xl outline-none text-lg text-white font-semibold px-2 placeholder:text-gray-400 
+      placeholder:font-normal placeholder:italic rounded-tl-md rounded-bl-md max-tablet:h-8 max-tablet:max-w-lg 
+      max-tablet:text-base max-mobile-m:max-w-xs 
+    }
+    .cards{
+        @apply w-full h-full max-w-52 m-2 rounded-lg cursor-pointer max-mobile-m:max-w-40 max-mobile-s:m-1
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+*::-webkit-scrollbar-track {
+    background: #000
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
 }
