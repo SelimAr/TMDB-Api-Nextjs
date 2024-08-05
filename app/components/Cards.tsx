@@ -59,31 +59,3 @@ export default function Cards(props: Movies) {
     </>
   );
 }
-
-/*
-
-"accordion effect image css horizontal"
-
-<div onClick={onClick} className="cards">
-      <Image
-        src={getImageUrl(poster_path)}
-        key={id}
-        alt={title}
-        className="rounded-t-lg bg-cover object-fill w-full h-full max-h-52"
-        width={100}
-        height={200}
-      />
-      <div className="text-white p-1.5 rounded-b-lg bg-black bg-opacity-50 space-y-1 ">
-        <p className="text-lg leading-5 h-10">{title}</p>
-        <p className="line-clamp-3 leading-4 text-sm font-light max-mobile-m:line-clamp-2">
-          {overview}
-        </p>
-      </div>
-    </div>
-
-    -- Blur bottom effect backdrop/poster --
-    <div className="relative">
-    <div className="absolute inset-0 bg-gradiant-to-b from-gray-200/0 via-gray-900/10 to-gray-300 z-10" />
-    </div>
-
-*/
