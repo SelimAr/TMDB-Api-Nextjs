@@ -3,24 +3,30 @@ import GenreRender from "@/app/components/GenreRender";
 import Link from "next/link";
 
 type GenreProps = {
-  params: {
+  params: Promise<{
     item: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     genre: string;
-  };
+  }>;
 };
 
-export default async function page({
-  params: { item },
-  searchParams: { genre },
-}: GenreProps) {
-  const genresURL = `https://api.themoviedb.org/3/discover/movie?language=fr-FR&include_adult=false&page=1&sort_by=popularity.desc&with_genres=${item}&api_key=${process.env.TMDB_API_KEY}`;
+export default async function page(props: GenreProps) {
+  const searchParams = await props.searchParams;
+
+  const { genre } = searchParams;
+
+  const params = await props.params;
+
+  const { item } = params;
+
+  const genresURL = `https://api.themoviedb.org/3/discover/movie?language=fr-FR&include_adult=false&page=1&sort_by=popularity.desc&with_genres=${item}`;
 
   const Options: RequestInit = {
     method: "GET",
     headers: {
       accept: "application/json",
+      Authorization: `bearer ${process.env.TMDB_API_KEY}`,
     },
   };
 

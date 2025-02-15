@@ -1,13 +1,14 @@
 import HomeBanner from "./HomeBanner";
 import ResearchContainer from "./ResearchContainer";
 
-const trendingURL = `https://api.themoviedb.org/3/trending/movie/day?language=fr-FR&api_key=${process.env.TMDB_API_KEY}`;
-const genresURL = `https://api.themoviedb.org/3/genre/movie/list?language=fr-FR&api_key=${process.env.TMDB_API_KEY}`;
+const trendingURL = `https://api.themoviedb.org/3/trending/movie/day?language=fr-FR`;
+const genresURL = `https://api.themoviedb.org/3/genre/movie/list?language=fr-FR`;
 
 const Options: RequestInit = {
   method: "GET",
   headers: {
     accept: "application/json",
+    Authorization: `bearer ${process.env.TMDB_API_KEY}`,
   },
 };
 

@@ -21,9 +21,10 @@ export default function GenreRender({ dataGenre }: { dataGenre: Movies[] }) {
 
   return (
     <div className="w-full flex justify-center flex-wrap">
-      {isGenre.map((data) => (
-        <Cards key={data.id} onClick={activeModal} {...data} />
-      ))}
+      {isGenre?.length > 0 &&
+        isGenre?.map((data) => (
+          <Cards key={data.id} onClick={activeModal} {...data} />
+        ))}
     </div>
   );
 }

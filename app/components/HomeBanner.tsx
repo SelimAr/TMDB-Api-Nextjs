@@ -32,7 +32,7 @@ export default function HomeBanner({
       effect="coverflow"
       className="rounded-lg relative"
     >
-      {isData.map((data) => (
+      {isData?.map((data) => (
         <SwiperSlide>
           <Image
             key={data.id}

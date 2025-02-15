@@ -26,7 +26,7 @@ export default function Container({
   return (
     <div className="w-full block ">
       <div className="w-full flex justify-center flex-wrap">
-        {isData.map((data) => (
+        {isData?.map((data) => (
           <Cards key={data.id} onClick={activeModal} {...data} />
         ))}
       </div>

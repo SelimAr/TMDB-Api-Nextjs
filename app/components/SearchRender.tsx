@@ -21,9 +21,10 @@ export default function SearchRender({ dataSearch }: { dataSearch: Movies[] }) {
 
   return (
     <div className="w-full flex justify-center flex-wrap">
-      {isResearch.map((data) => (
-        <Cards key={data.id} onClick={activeModal} {...data} />
-      ))}
+      {isResearch?.length > 0 &&
+        isResearch?.map((data) => (
+          <Cards key={data.id} onClick={activeModal} {...data} />
+        ))}
     </div>
   );
 }

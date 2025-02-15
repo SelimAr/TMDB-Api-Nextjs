@@ -2,11 +2,17 @@ import React from "react";
 import SearchRender from "@/app/components/SearchRender";
 import Link from "next/link";
 
-export default async function page({
-  params: { item },
-}: {
-  params: { item: string };
-}) {
+export default async function page(
+  props: {
+    params: Promise<{ item: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    item
+  } = params;
+
   const searchURL = `https://api.themoviedb.org/3/search/multi?query=${item}&include_adult=false&language=fr-FR&page=1&api_key=${process.env.TMDB_API_KEY}`;
 
   const Options: RequestInit = {

@@ -1,11 +1,12 @@
 import Container from "./components/Container";
 
-const discoverURL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&language=fr-FR&page=1&sort_by=popularity.desc&api_key=${process.env.TMDB_API_KEY}`;
+const discoverURL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&language=fr-FR&page=1&sort_by=popularity.desc`;
 
 const Options: RequestInit = {
   method: "GET",
   headers: {
     accept: "application/json",
+    Authorization: `bearer ${process.env.TMDB_API_KEY}`,
   },
 };
 
